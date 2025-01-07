@@ -30,11 +30,236 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        /*
+    CSS @property and the New Style
+    https://ryanmulligan.dev/blog/css-property-new-style/
+    */
+    @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
+    
+    :root {
+      --shiny-cta-bg: #4b2303;
+      --shiny-cta-bg-subtle: #1a1818;
+      --shiny-cta-fg: #ffffff;
+      --shiny-cta-highlight: rgb(187, 122, 48);
+      --shiny-cta-highlight-subtle: #815128;
+    }
+    
+    @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+    
+    @property --gradient-angle-offset {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+    
+    @property --gradient-percent {
+      syntax: "<percentage>";
+      initial-value: 5%;
+      inherits: false;
+    }
+    
+    @property --gradient-shine {
+      syntax: "<color>";
+      initial-value: white;
+      inherits: false;
+    }
+    
+    .shiny-cta {
+        margin-top: 22px;
+        margin-left: 70vh;
+      --animation: grad
+      ient-angle linear infinite;
+      --duration: 3s;
+      --shadow-size: 2px;
+      isolation: isolate;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      outline-offset: 4px;
+      padding: 1.25rem 2.5rem;
+      font-family: inherit;
+      font-size: 1.125rem;
+      line-height: 1.2;
+      border: 1px solid transparent;
+      border-radius: 360px;
+      color: var(--shiny-cta-fg);
+      background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
+          padding-box,
+        conic-gradient(
+            from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+            transparent,
+            var(--shiny-cta-highlight) var(--gradient-percent),
+            var(--gradient-shine) calc(var(--gradient-percent) * 2),
+            var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+            transparent calc(var(--gradient-percent) * 4)
+          )
+          border-box;
+      box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+    
+      &::before,
+      &::after,
+      span::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+      }
+    
+      &:active {
+        translate: 0 1px;
+      }
+    }
+    
+    /* Dots pattern */
+    .shiny-cta::before {
+      --size: calc(100% - var(--shadow-size) * 3);
+      --position: 2px;
+      --space: calc(var(--position) * 2);
+      width: var(--size);
+      height: var(--size);
+      background: radial-gradient(
+          circle at var(--position) var(--position),
+          white calc(var(--position) / 4),
+          transparent 0
+        )
+        padding-box;
+      background-size: var(--space) var(--space);
+      background-repeat: space;
+      mask-image: conic-gradient(
+        from calc(var(--gradient-angle) + 45deg),
+        black,
+        transparent 10% 90%,
+        black
+      );
+      border-radius: inherit;
+      opacity: 0.4;
+      z-index: -1;
+    }
+    
+    /* Inner shimmer */
+    .shiny-cta::after {
+      --animation: shimmer linear infinite;
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(
+        -50deg,
+        transparent,
+        var(--shiny-cta-highlight),
+        transparent
+      );
+      mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+      opacity: 0.6;
+    }
+    
+    .shiny-cta span {
+      z-index: 1;
+    
+      &::before {
+        --size: calc(100% + 1rem);
+        width: var(--size);
+        height: var(--size);
+        box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+        opacity: 0;
+      }
+    }
+    
+    /* Animate */
+    .shiny-cta {
+      --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+      transition: var(--transition);
+      transition-property: --gradient-angle-offset, --gradient-percent,
+        --gradient-shine;
+    
+      &,
+      &::before,
+      &::after {
+        animation: var(--animation) var(--duration),
+          var(--animation) calc(var(--duration) / 0.4) reverse paused;
+        animation-composition: add;
+      }
+    
+      span::before {
+        transition: opacity var(--transition);
+        animation: calc(var(--duration) * 1.5) breathe linear infinite;
+      }
+    }
+    
+    .shiny-cta:is(:hover, :focus-visible) {
+      --gradient-percent: 20%;
+      --gradient-angle-offset: 95deg;
+      --gradient-shine: var(--shiny-cta-highlight-subtle);
+    
+      &,
+      &::before,
+      &::after {
+        animation-play-state: running;
+      }
+    
+      span::before {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes gradient-angle {
+      to {
+        --gradient-angle: 360deg;
+      }
+    }
+    
+    @keyframes shimmer {
+      to {
+        rotate: 360deg;
+      }
+    }
+    
+    @keyframes breathe {
+      from,
+      to {
+        scale: 1;
+      }
+      50% {
+        scale: 1.2;
+      }
+    }
+    
+    
+    
+    </style>
+    <style>
+        .service-item {
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .service-item:hover {
+        transform: translateY(-10px); /* Animation de remontée */
+    }
+    
+    .service-item i {
+        color: #3498db; /* Couleur des icônes */
+        transition: color 0.3s ease;
+    }
+    
+    .service-item:hover i {
+        color: #e67e22; /* Changer la couleur de l'icône au survol */
+    }
+    
+    </style>
+    
 </head>
 
 <body>
     <canvas id="embersCanvas" style="display: flex;" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50  align-items-center justify-content-center"></canvas>
-
 
 
     <nav id="navbar" style="z-index: 9999999;" class="navbar navbar-expand-lg bg-transparent navbar-light w-100 z-index-9999 position-absolute">
@@ -50,8 +275,15 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link  wow fadeIn" data-wow-delay="0.3s">Accueil</a>
                 <a href="about.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.4s">À propos</a>
-                <a href="vision.html" class="nav-item nav-link  wow fadeIn" data-wow-delay="0.5s">Notre Vision</a>
+                <a href="vision.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.5s">Notre Vision</a>
                 <a href="contact.html" class="nav-item nav-link active wow fadeIn" data-wow-delay="0.6s">Contact</a>
+            </div>
+
+            <div class="nav-item me-4 wow fadeIn" data-wow-delay="0.7s">
+                <a href="cart.html" class="position-relative d-flex align-items-center justify-content-center" style="text-decoration: none; color: white;">
+                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                    <span class="badge bg-primary rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -61,7 +293,9 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Contact</h1>
+                    <div class="section-title text-center" style="text-align: center !important; width: 100%;">
+                        <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Dancing Script', serif;">Nos Services</h1>
+                    </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a class="text-white" href="#">Acceuil</a></li>
@@ -79,7 +313,9 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Contactez-Nous</h6>
+            <div class="section-title text-center" style="text-align: center !important; width: 100%;">
+                <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Dancing Script', serif;">Contactez nous</h1>
+            </div>
             <h1 class="mb-5">Explorez l'Artisanat Marocain</h1>
         </div>
         <div class="row g-4">
@@ -397,10 +633,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; 2024 Artisanat Marocain, Tous droits réservés.
+                    &copy; 2024 ARTIZANYA, Tous droits réservés.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    Designé par <a href="#" class="text-beige">Artisanat Marocain</a>
+                    Designé par <a href="#" class="text-beige">ARTIZANYA</a>
                 </div>
             </div>
         </div>

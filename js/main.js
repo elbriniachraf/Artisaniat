@@ -7,6 +7,7 @@
             if ($('#embersCanvas').length > 0) {
                 $('#embersCanvas').hide();
                 $('#main').show();
+
                   // Header carousel
     $(".header-carousel").owlCarousel({
         autoplay: true,
@@ -22,51 +23,48 @@
     });
 
     AOS.init({
-        duration: 1000,  // Durée de l'animation (en ms)
-        easing: 'ease-in-out',  // Type d'animation
-        once: true  // L'animation se joue une seule fois lors du défilement
-    });
+        offset: 120, // Décalage en pixels par rapport au viewport
+        duration: 600, // Durée de l'animation en millisecondes
+        easing: 'ease-in-out', // Courbe d'animation
+        delay: 100, // Délai avant le démarrage
+        once: true, // Si vrai, l'animation ne s'exécute qu'une seule fois
+        mirror: false, // Si vrai, l'animation se répète lors du défilement vers le haut
+      });
 
-    new Typed("#typing-effect", {
-        strings: [
-            "L'artisanat marocain, un trésor d'authenticité.",
-            "Chaque pièce raconte une histoire.",
-            "Des produits faits avec amour et savoir-faire.",
-            "Un patrimoine culturel unique au monde.",
-            "L'élégance de la tradition dans votre quotidien."
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        loop: true
-    });
-    $('.slick-carousel').slick({
-        dots: true,
-        infinite: true,
-        loop: true, // Cette option n'est pas nécessaire avec 'infinite: true'
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true, // Active le défilement automatique
-        autoplaySpeed: 3000, // Définit l'intervalle de défilement automatique à 2 secondes (2000ms)
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
+
+      AOS.refresh();
+
+
+    setTimeout(() => {
+        $("#cosmmm").click();
+        $('.slick-carousel').slick({
+            dots: true,
+            infinite: true,
+            loop: true, // Cette option n'est pas nécessaire avec 'infinite: true'
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true, // Active le défilement automatique
+            autoplaySpeed: 3000, // Définit l'intervalle de défilement automatique à 2 secondes (2000ms)
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-    
-// Portfolio isotope and filter
+            ]
+        });
+
+        // Portfolio isotope and filter
 var portfolioIsotope = $('.portfolio-container').isotope({
     itemSelector: '.portfolio-item',
     layoutMode: 'fitRows'
@@ -78,6 +76,22 @@ $('#portfolio-flters li').on('click', function () {
     portfolioIsotope.isotope({filter: $(this).data('filter')});
 });
 
+new Typed("#typing-effect", {
+    strings: [
+        "L'artisanat marocain, un trésor d'authenticité.",
+        "Chaque pièce raconte une histoire.",
+        "Des produits faits avec amour et savoir-faire.",
+        "Un patrimoine culturel unique au monde.",
+        "L'élégance de la tradition dans votre quotidien."
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    loop: true
+});
+        
+    }, 1290);
+ 
+    
 
             }
         }, 3000);

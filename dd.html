@@ -528,8 +528,8 @@
                 'btn-danger': !order.isRemetre,
                 'btn-success': order.isRemetre
             }"
-            ng-click="order.isRemetre ? remetre(order) : cancelRecovery(order)">
-            {{ order.isRemetre ? 'Remettre' : 'Annuler la récupération' }}
+            ng-click="order.isRemetre ? annuleRecuperation(order,true) : annuleRecuperation(order,false)">
+            {{ !order.isRemetre ? 'Remettre' : 'Annuler la récupération' }}
         </button>
     </td>
     
@@ -544,11 +544,11 @@
 			<td>{{ getTotal('palettesRendus_En_Mag') }}</td>
 			<td>{{ getTotal('palettesEnleved_En_Cha') }}</td>
 			<td>{{ getTotal('palettesRendus_En_Cha') }}</td>
-			<td>{{ getTotal('palettesEnleved_En_Ch_d') }}</td>
+			<td>{{stock.palettesARendre}}</td>
 			<td colspan="2"></td>
 			<td>{{ getTotal('palLiv_magasinier') }}</td>
 			<td>{{ getTotal('palLiv_chauffeur') }}</td>
-			<td>{{ getTotal('palLiv_returned') }}</td>
+			<td>{{ stock.palettesARecuperer }}</td>
 			<td colspan="2"></td>
 		  </tr>
 		</tfoot>
@@ -604,7 +604,7 @@
 		<div class="card-header d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-around;">
 		  <span class="text-white"><strong>Date:</strong> {{ item.date }}</span>
 		  <span class="text-white font-weight-bold">Palettes: {{ item.nombreDePalettes }}</span>
-		  <span class="text-white font-italic">Réceptionnaire: {{ item.receptionnaire }}</span>
+		  <span class="text-white font-italic">Réceptionnaire: {{ item.receiverName }}</span>
 		</div>
   
 		<!-- Adresse -->
@@ -636,7 +636,7 @@
 		  <button ng-if="item.isCaler && !item.isTerminer" class="btn btn-primary btn-icon mb-2" ng-click="supprimerDuCamion(item)">
 			<i class="fas fa-truck-loading"></i>
 		  </button>
-		  <button ng-if="item.isTerminer" class="btn btn-success btn-icon" ng-click="imprimerBon(item)">
+		  <button ng-if="item.isTerminer" class="btn btn-success btn-icon" ng-click="printBordereaux(item)">
 			<i class="fas fa-print"></i>
 		  </button>
 		</div>

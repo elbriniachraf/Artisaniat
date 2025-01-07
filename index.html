@@ -19,6 +19,19 @@
 
     <style>
 
+.fa-shopping-cart:hover {
+    animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
         .fab:hover{
             color: #b26a3a;
         }
@@ -117,6 +130,13 @@
                 <a href="about.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.4s">À propos</a>
                 <a href="vision.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.5s">Notre Vision</a>
                 <a href="contact.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.6s">Contact</a>
+            </div>
+
+            <div class="nav-item me-4 wow fadeIn" data-wow-delay="0.7s">
+                <a href="cart.html" class="position-relative d-flex align-items-center justify-content-center" style="text-decoration: none; color: white;">
+                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                    <span class="badge bg-primary rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -562,6 +582,53 @@ html::-webkit-scrollbar-thumb:hover {
 <br>
 <br>
 
+<div class="section-title text-center" style="text-align: center !important; width: 100%;">
+    <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Dancing Script', serif;">Notre Artisanat</h1>
+</div>
+
+<div class="container-xxl py-5" style="background-color: #f9f9f9;max-width: 100%;">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Image Section -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="img/DALL·E 2025-01-06 09.29.25 - A vibrant scene in Marrakech featuring multiple artisans working on their crafts in a traditional marketplace. The image should showcase a variety of .webp" alt="Moroccan Artisans" style="object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+            <!-- Text Section -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h1 class="mb-4" style="font-family: 'Sacramento', serif; color: #8B5E3C;">Bienvenue dans le Monde de l'Artisanat Marocain</h1>
+                <p class="mb-4" style="font-family: 'Amiri', sans-serif; color: #555;">L'artisanat marocain est un symbole de tradition, de créativité et de savoir-faire unique, transmis de génération en génération. Chaque produit raconte une histoire de culture et de passion.</p>
+                <p class="mb-4" style="font-family: 'Amiri', sans-serif; color: #555;">Nos artisans créent des œuvres uniques, alliant modernité et tradition, en utilisant des matériaux locaux et des techniques ancestrales pour chaque pièce.</p>
+
+                <div class="row gy-2 gx-4 mb-4">
+                    <!-- List of services -->
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-palette text-primary me-2"></i>Artisanat Traditionnel</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-gem text-primary me-2"></i>Produits Uniques</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-handshake text-primary me-2"></i>Collaboration Personnalisée</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-truck text-primary me-2"></i>Livraison Rapide</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-hand-holding-heart text-primary me-2"></i>Respect de l'Environnement</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0" style="font-family: 'Tajawal', sans-serif;"><i class="fa fa-heart text-primary me-2"></i>Passion pour l'Artisanat</p>
+                    </div>
+                </div>
+
+                <!-- Call to Action Button -->
+                <a class="btn btn-primary py-3 px-5 mt-2" href="" style="font-family: 'Tajawal', sans-serif; background-color: #8B5E3C; border-radius: 30px;">En Savoir Plus</a>
+            </div>
+        </div>
+    </div>
+</div>
   <!-- Projects Start -->
   <div class="container-xxl py-5" style="background-color: #f9f9f9;max-width: 100%;">
     <div class="container">
@@ -571,7 +638,7 @@ html::-webkit-scrollbar-thumb:hover {
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
             <div class="col-12 text-center">
                 <ul class="list-inline mb-5" id="portfolio-flters">
-                    <li class="mx-2 active" data-filter=".cosmetique">Cosmetique</li>
+                    <li class="mx-2 active" data-filter=".cosmetique" id="cosmmm">Cosmetique</li>
                     <li class="mx-2" data-filter=".parfums">Parfums</li>
                     <li class="mx-2" data-filter=".cuivre">Cuivre</li>
                     <li class="mx-2" data-filter=".argil">Argil</li>
@@ -586,17 +653,23 @@ html::-webkit-scrollbar-thumb:hover {
                 <div class="rounded shadow-lg bg-white p-4" style="border: 2px solid #e4e4e4; border-top: 5px solid #b26a3a;">
                     <div class="text-center mb-4">
                         <h2 class="text-primary" style="font-family: 'Dancing Script', serif; font-size: 2.5rem;">Création Personnalisée</h2>
-                        <p style="font-size: 1rem; color: #555;">Nous sommes fiers de collaborer avec Mr Mohammed SLAOUI, expert en céramique et argile, pour vous offrir des créations uniques et personnalisables. Donnez vie à vos envies avec des pièces sur mesure alliant savoir-faire artisanal et design raffiné.</p>
+                        <p style="font-size: 1rem; color: #555;">
+                            Nous sommes fiers de collaborer avec Mr Mohammed SLAOUI, expert en céramique et argile, pour vous offrir des créations uniques et personnalisables. Donnez vie à vos envies avec des pièces sur mesure alliant savoir-faire artisanal et design raffiné.
+                        </p>
                     </div>
                     <div class="row">
-                        <!-- Catalogue -->
+                        <!-- Visionneuse PDF -->
                         <div class="col-md-6">
-                            <h4 style="color: #b26a3a;">Catalogue d'idées</h4>
-                            <div class="d-flex flex-wrap gap-3">
-                                <img src="https://via.placeholder.com/100" alt="Catalogue 1" class="rounded shadow-sm" style="width: 100px; height: 100px; border: 2px solid #e4e4e4;">
-                                <img src="https://via.placeholder.com/100" alt="Catalogue 2" class="rounded shadow-sm" style="width: 100px; height: 100px; border: 2px solid #e4e4e4;">
-                                <img src="https://via.placeholder.com/100" alt="Catalogue 3" class="rounded shadow-sm" style="width: 100px; height: 100px; border: 2px solid #e4e4e4;">
+                            <h4 style="color: #b26a3a;">Catalogue PDF</h4>
+                            <div class="pdf-viewer rounded shadow-sm" style="border: 2px solid #e4e4e4; overflow: hidden;">
+                                <iframe 
+                                    src="Untitled.pdf" 
+                                    width="100%" 
+                                    height="400px" 
+                                    style="border: none; border-radius: 8px;">
+                                </iframe>
                             </div>
+                            <p class="mt-2 text-muted" style="font-size: 0.9rem;">Explorez notre catalogue PDF pour découvrir toutes nos idées de création.</p>
                         </div>
             
                         <!-- Formulaire -->
@@ -617,6 +690,7 @@ html::-webkit-scrollbar-thumb:hover {
                     </div>
                 </div>
             </div>
+            
 
             <style>
                 /* Style général */
@@ -667,7 +741,7 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Marmite en cuivre ciselé élégament décorée.</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -684,7 +758,7 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Théiére en métal gravé.</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -701,7 +775,7 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Tajine en metal.</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -718,7 +792,24 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Ensemble de trois thiééres finement faconnées Métal brillant et design raffiné.</p>
+                        <p class="fw-bold">Prix: 50 €</p>
+                        <a class="btn btn-primary" href="#">Découvrir plus</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 portfolio-item argil wow fadeInUp" data-wow-delay="0.3s">
+                <div class="rounded overflow-hidden shadow-lg">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/6ab53286-7568-4121-b4c9-c6aa62890306 (2).jpeg" alt="Parfums">
+                        <div class="portfolio-overlay">
+                            <a class="btn btn-square btn-outline-light mx-1" href="https://via.placeholder.com/300x200.png?text=Parfums+1" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="border border-5 border-light border-top-0 p-4">
+                        <p class="lh-base mb-2">Ensemble de trois jarres en céramique avec couvercles raffinés.</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -727,17 +818,48 @@ html::-webkit-scrollbar-thumb:hover {
 
 
 
-
-            <div class="col-lg-4 col-md-6 portfolio-item cosmetique wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-4 col-md-6 portfolio-item argil wow fadeInUp" data-wow-delay="0.3s">
                 <div class="rounded overflow-hidden shadow-lg">
                     <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/b16535ae-3502-405b-8cb5-2ad44a1d2c1b.jpeg" alt="Parfums">
+                        <img class="img-fluid w-100" src="img/IMG_3570 (1).jpeg" alt="Parfums">
                         <div class="portfolio-overlay">
                             <a class="btn btn-square btn-outline-light mx-1" href="https://via.placeholder.com/300x200.png?text=Parfums+1" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Bol décoratif orné et élégant.</p>
+                        <p class="fw-bold">Prix: 50 €</p>
+                        <a class="btn btn-primary" href="#">Découvrir plus</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 portfolio-item argil wow fadeInUp" data-wow-delay="0.3s">
+                <div class="rounded overflow-hidden shadow-lg">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/286fd616-a2b5-4d6c-b6e9-70a57faa25b9.jpeg" alt="Parfums">
+                        <div class="portfolio-overlay">
+                            <a class="btn btn-square btn-outline-light mx-1" href="https://via.placeholder.com/300x200.png?text=Parfums+1" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="border border-5 border-light border-top-0 p-4">
+                        <p class="lh-base mb-2">Ensemble de quatre assiettes  artisanales décorée à la main au design raffiné.</p>
+                        <p class="fw-bold">Prix: 50 €</p>
+                        <a class="btn btn-primary" href="#">Découvrir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item cosmetique wow fadeInUp" data-wow-delay="0.3s">
+                <div class="rounded overflow-hidden shadow-lg">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/87b8c24e-1053-4d10-a290-e9a9cc11d627.jpeg" alt="Parfums">
+                        <div class="portfolio-overlay">
+                            <a class="btn btn-square btn-outline-light mx-1" href="https://via.placeholder.com/300x200.png?text=Parfums+1" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="border border-5 border-light border-top-0 p-4">
+                        <p class="lh-base mb-2">Une bouteille de khol à l'anicenne avec un baton en bois.</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -754,7 +876,7 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="lh-base mb-2">Description courte du parfum 1.</p>
+                        <p class="lh-base mb-2">Parfum d'oud sensuel mystique et captivant</p>
                         <p class="fw-bold">Prix: 50 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
@@ -771,31 +893,14 @@ html::-webkit-scrollbar-thumb:hover {
                         </div>
                     </div>
                     <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="text-primary fw-medium mb-2">Parfum 2</p>
-                        <p class="lh-base mb-2">Description courte du parfum 2.</p>
+                        <p class="lh-base mb-2">Extrait d'oud précieux,parfum envoutant.</p>
                         <p class="fw-bold">Prix: 55 €</p>
                         <a class="btn btn-primary" href="#">Découvrir plus</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Cuivre -->
-            <div class="col-lg-4 col-md-6 portfolio-item cuivre wow fadeInUp" data-wow-delay="0.5s">
-                <div class="rounded overflow-hidden shadow-lg">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/87b8c24e-1053-4d10-a290-e9a9cc11d627.jpeg" alt="Cuivre">
-                        <div class="portfolio-overlay">
-                            <a class="btn btn-square btn-outline-light mx-1" href="https://via.placeholder.com/300x200.png?text=Cuivre+1" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                    <div class="border border-5 border-light border-top-0 p-4">
-                        <p class="text-primary fw-medium mb-2">Produit Cuivre 1</p>
-                        <p class="lh-base mb-2">Description courte du produit en cuivre 1.</p>
-                        <p class="fw-bold">Prix: 35 €</p>
-                        <a class="btn btn-primary" href="#">Découvrir plus</a>
-                    </div>
-                </div>
-            </div>
+          
 
             <!-- Accessoires -->
             <div class="col-lg-4 col-md-6 portfolio-item accessoires wow fadeInUp" data-wow-delay="0.5s">
@@ -1082,14 +1187,14 @@ https://ryanmulligan.dev/blog/css-property-new-style/
     <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Dancing Script', serif;">Gallery</h1>
 </div>
 
-<section class="gallery" style="background: url('https://img.freepik.com/free-photo/sweet-cookies-with-fresh-peanut-brittles-rope_114579-46833.jpg?uid=R95294288&ga=GA1.1.434205371.1720531667&semt=ais_hybrid');">
-    <img src="img/0fcc385f-9257-4dba-93a3-9d5a38179127.jpeg" data-aos="flip-left" data-aos-duration="1000" />
-    <img src="img/baume.jpg" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="100" />
-    <img src="img/artisanat.jpg" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" />
+<section class="gallery" style="background: url('img/vecteezy_ramadan-kareem-islamic-textile-pattern-moroccan-pattern_21192783.jpg');">
+    <img src="img/ramadan-concept-with-tea-set.jpg" data-aos="flip-left" data-aos-duration="1000" />
+    <img src="img/plate-lamp-marrakesh-room-art.jpg" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="100" />
+    <img src="img/pexels-orlovamaria-4946769.jpg" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" />
     <img src="img/b16535ae-3502-405b-8cb5-2ad44a1d2c1b.jpeg" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="300" />
-    <img src="img/slidd2.jpeg" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400" />
-    <img src="img/slidd3.jpeg" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="500" />
-    <img src="img/eau_rose.jpg" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600" />
+    <img src="img/slidd3.jpeg" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400" />
+    <img src="img/close-up-colored-ornament-wood-traditional-oriental-style.jpg" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="500" />
+    <img src="img/slidd2.jpeg" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600" />
     <img src="img/first.jpeg" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="700" />
     <img src="img/0fcc385f-9257-4dba-93a3-9d5a38179127.jpeg " data-aos="flip-left" data-aos-duration="1000" data-aos-delay="800" />
     <img src="img/WhatsApp Image 2024-12-30 at 11.05.16 PM.jpeg" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="900" />
@@ -1142,21 +1247,23 @@ https://ryanmulligan.dev/blog/css-property-new-style/
         </div>
     </div>
 </div>
+<div class="section-title text-center" style="text-align: center !important; width: 100%;">
+    <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Dancing Script', serif;">Nos Services</h1>
+</div>
 <!-- About End -->
-<section class="about-section position-relative" style="background: url('https://i.pinimg.com/736x/ac/a2/d2/aca2d27fea92d57640b44eb2126af6d7.jpg') no-repeat center center; background-size: cover; padding: 80px 0;">
+<section class="about-section position-relative" style="background: url('img/vecteezy_ramadan-kareem-islamic-textile-pattern-moroccan-pattern_21192783.jpg') no-repeat center center; background-size: cover; padding: 80px 0;">
     <!-- Overlay -->
     <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.35); z-index: 1;"></div>
 
     <div class="container position-relative" style="z-index: 2;">
         <div class="row text-center">
             <div class="col-12 mb-5">
-                <h1 style="font-family: 'Sacramento', serif; color: #FFD700;">Nos Services</h1>
                 <p class="text-white" style="font-family: 'Roboto', sans-serif; font-size: 18px; max-width: 800px; margin: 0 auto;">Découvrez l'excellence de l'artisanat marocain à travers nos services personnalisés, alliant tradition et innovation.</p>
             </div>
         </div>
         <div class="row g-4">
             <!-- Service 1 -->
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" >
                 <div class="service-item text-center pt-4" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; padding: 30px;">
                     <div class="p-4">
                         <i class="fa fa-3x fa-truck text-warning mb-4" style="color: rgb(173 127 75) !important;"></i>
@@ -1166,7 +1273,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
                 </div>
             </div>
             <!-- Service 2 -->
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" >
                 <div class="service-item text-center pt-4" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; padding: 30px;">
                     <div class="p-4">
                         <i class="fa fa-3x fa-cogs text-warning mb-4" style="color: rgb(173 127 75) !important;"></i>
@@ -1176,7 +1283,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
                 </div>
             </div>
             <!-- Service 3 -->
-            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="500">
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" >
                 <div class="service-item text-center pt-4" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; padding: 30px;">
                     <div class="p-4">
                         <i class="fa fa-3x fa-handshake text-warning mb-4" style="color: rgb(173 127 75) !important;"></i>
@@ -1186,7 +1293,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
                 </div>
             </div>
             <!-- Service 4 -->
-            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="700">
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" >
                 <div class="service-item text-center pt-4" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; padding: 30px;">
                     <div class="p-4">
                         <i class="fa fa-3x fa-palette text-warning mb-4" style="color: rgb(173 127 75) !important;"></i>
@@ -1213,7 +1320,17 @@ https://ryanmulligan.dev/blog/css-property-new-style/
             <h1 class="display-5 mb-5" style="color: #b26a3a; font-family: 'Sacramento', serif;">Témoignages</h1>
             <h1 class="mb-5">Ce que disent nos clients !</h1>
             <!-- Typing Effect -->
-            <h3 class="mb-4" id="typing-effect" style="font-family: 'Poppins', sans-serif; color: #b26a3a; font-style: italic;"></h3>
+            <div class="phrases-section">
+                <h3 class="mb-4" data-aos="fade-up" data-aos-delay="100" style="font-family: 'Poppins', sans-serif; color: #b26a3a; font-style: italic;">
+                    L'artisanat marocain, un trésor d'authenticité.
+                </h3>
+                <h3 class="mb-4" data-aos="fade-up" data-aos-delay="400" style="font-family: 'Poppins', sans-serif; color: #b26a3a; font-style: italic;">
+                    Chaque pièce raconte une histoire.
+                </h3>
+                <h3 class="mb-4" data-aos="fade-up" data-aos-delay="800" style="font-family: 'Poppins', sans-serif; color: #b26a3a; font-style: italic;">
+                    Des produits faits avec amour et savoir-faire.
+                </h3>
+            </div>
         </div>
         <div class="d-flex flex-wrap justify-content-between align-items-start gap-5">
             <!-- Témoignages Section -->

@@ -32,6 +32,353 @@
 }
 
  </style>
+
+ <style>
+    .section-title h1::before,
+.section-title h1::after {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 5px;
+    bottom: 0;
+   background-color: rgb(173 127 75);
+}
+
+.section-title h1::before {
+    left: 0;
+}
+
+.section-title h1::after {
+    right: 0;
+}
+
+.section-title.text-start h1::before {
+    display: none;
+}
+
+ </style>
+
+<style>
+    /* Custom Scrollbar */
+ html {
+     overflow-x: hidden;
+     scrollbar-width: thin; /* For Firefox */
+     scrollbar-color: #b26a3a #f5e9dc; /* Track and thumb colors */
+ }
+ 
+ /* Scrollbar for WebKit browsers */
+ html::-webkit-scrollbar {
+     width: 12px;
+ }
+ 
+ html::-webkit-scrollbar-track {
+     background: #f5e9dc; /* Light beige for the track */
+     border-radius: 10px;
+ }
+ 
+ html::-webkit-scrollbar-thumb {
+     background-color: #b26a3a; /* Brown for the thumb */
+     border-radius: 10px;
+     border: 3px solid #f5e9dc; /* Adds spacing between thumb and track */
+ }
+ 
+ /* Hover effect on scrollbar */
+ html::-webkit-scrollbar-thumb:hover {
+     background-color: #8a4f2a; /* Darker brown on hover */
+ }
+ 
+     .owl-dots {
+     position: absolute;
+     top: 50%; /* Positionnement au centre vertical */
+     right: 20px; /* Distance depuis la droite */
+     transform: translateY(-50%); /* Centrage vertical précis */
+     z-index: 1000; /* Assurez-vous que les dots sont visibles */
+     display: flex;
+     flex-direction: column; /* Empilement vertical des dots */
+     gap: 10px; /* Espacement entre les dots */
+ }
+ .portfolio-item:hover {
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .owl-dot {
+     display: inline-block;
+     width: 12px;
+     height: 12px;
+     background: #fff;
+     border-radius: 50%;
+     cursor: pointer;
+     opacity: 0.7;
+     transition: opacity 0.3s, transform 0.3s;
+ }
+ 
+ .owl-dot.active {
+     opacity: 1;
+     transform: scale(1.2);
+ }
+ 
+     @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal:wght@400;700&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Scheherazade&family=Amiri&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+ 
+     @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+ 
+ .cardd-title {
+     font-family: "Sacramento", serif;
+   font-weight: 400;
+   font-style: normal;
+     font-size: 2.5rem;
+     color: #ffdab9; /* Couleur douce inspirée du sable marocain */
+     line-height: 1.2;
+ }
+ 
+ .carousel-title {
+     font-family: "Dancing Script", serif;
+     font-size: 5rem;
+     font-weight: 700;
+     color: #d28d2d; /* Doré pour un style marocain riche */
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+     line-height: 1.3;
+     text-align: left;
+ }
+ 
+ /* Custom Styling */
+ .header-carousel .owl-carousel-item {
+     height: 60vh;
+     position: relative;
+ }
+ .slick-carousel .card {
+     border: none;
+     border-radius: 15px;
+     overflow: hidden;
+     transition: transform 0.3s ease;
+ }
+ .slick-carousel .card:hover {
+     transform: translateY(-10px);
+ }
+ 
+ .owl-stage-outer{
+     height: 100vh !important;
+ }
+ 
+ /* Navbar transparente */
+ .navbar.bg-transparent {
+     background-color: transparent !important;
+     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ /* Navbar avec fond blanc */
+ .navbar.bg-white {
+     background-color: white !important;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .card-text {
+     font-family: 'Roboto', sans-serif;
+     font-size: 0.9rem;
+     color: #4a4a4a;
+ }
+ 
+ .card-title {
+     font-family: "Sacramento", serif;
+   font-weight: 400;
+   font-style: normal;
+     font-size: 1.2rem;
+     color: #2b2b2b;
+ }
+ 
+ 
+ /* Style général des cards */
+ .cardd {
+     border: none;
+     border-radius: 15px;
+     overflow: hidden;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     position: relative;
+     background: #fefefe;
+ }
+ 
+ /* Animation au survol */
+ .cardd:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+ }
+ 
+ /* Image des cards */
+ .cardd img {
+     border-top-left-radius: 15px;
+     border-top-right-radius: 15px;
+     object-fit: cover;
+ }
+ 
+ /* Corps de la card */
+ .cardd-body {
+     padding: 15px;
+     text-align: center;
+ }
+ 
+ /* Titre des cards */
+ .cardd-title {
+     font-family: "Tajwal", serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 1.1rem;
+     font-weight: 700;
+     color: #333;
+     margin: 0;
+     line-height: 1.5;
+ }
+ 
+ /* Ajouter une icône en arrière-plan */
+ .cardd::before {
+     content: '';
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     width: 40px;
+     height: 40px;
+     background: rgba(0, 0, 0, 0.05);
+     border-radius: 50%;
+     z-index: 1;
+ }
+ 
+ /* Animation de fade-in */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: scale(0.95);
+     }
+     to {
+         opacity: 1;
+         transform: scale(1);
+     }
+ }
+ 
+ .slick-carousel .card {
+     animation: fadeIn 0.5s ease;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+     
+ 
+     
+ }
+ 
+ 
+ /*** Project Portfolio ***/
+ #portfolio-flters li {
+     display: inline-block;
+     font-family: monospace;
+     font-weight: 500;
+     color: #525451;
+     cursor: pointer;
+     transition: .5s;
+     border-bottom: 2px solid transparent;
+ }
+ 
+ #portfolio-flters li:hover,
+ #portfolio-flters li.active {
+     color: #5d3923;
+     border-color: #5d3923;
+ }
+ 
+ .portfolio-item img {
+     transition: .5s;
+ }
+ 
+ .portfolio-item:hover img {
+     transform: scale(1.1);
+ }
+ 
+ .portfolio-item .portfolio-overlay {
+     position: absolute;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 0;
+     height: 0;
+     bottom: 0;
+     left: 50%;
+     background: rgba(53, 53, 53, .7);
+     transition: .5s;
+ }
+ 
+ .portfolio-item:hover .portfolio-overlay {
+     width: 100%;
+     height: 100%;
+     left: 0;
+ }
+ 
+ .portfolio-item .portfolio-overlay .btn {
+     opacity: 0;
+ }
+ 
+ .portfolio-item:hover .portfolio-overlay .btn {
+     opacity: 1;
+ }
+ 
+ /*** Section Title ***/
+ .section-title h1 {
+     position: relative;
+     display: inline-block;
+     padding: 0 60px;
+ }
+ 
+ .section-title.text-start h1 {
+     padding-left: 0;
+ }
+ 
+ .section-title h1::before,
+ .section-title h1::after {
+     position: absolute;
+     content: "";
+     width: 45px;
+     height: 5px;
+     bottom: 0;
+    background-color: rgb(173 127 75);
+ }
+ 
+ .section-title h1::before {
+     left: 0;
+ }
+ 
+ .section-title h1::after {
+     right: 0;
+ }
+ 
+ .section-title.text-start h1::before {
+     display: none;
+ }
+ 
+ 
+ </style>
+ 
+ <style>
+     /* Style général des dots */
+     .owl-carousel .owl-dots .owl-dot span {
+         background-color: #8B4513; /* Marron */
+         width: 12px;
+         height: 12px;
+         border-radius: 50%;
+         display: block;
+         transition: all 0.3s ease;
+     }
+     
+     /* Lorsque la dot est active */
+     .owl-carousel .owl-dots .owl-dot.active span {
+         background-color: #A0522D; /* Marron plus clair pour l'état actif */
+         transform: scale(1.3); /* Agrandit légèrement */
+     }
+     
+     /* Centrer les dots sous le carrousel */
+     .owl-carousel .owl-dots {
+   
+     
+         display: flex;
+         justify-content: center;
+         gap: 10px;
+     }
+     </style>
+     
         <!-- AOS CSS -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -79,6 +426,13 @@
                 <a href="vision.html" class="nav-item nav-link active wow fadeIn" data-wow-delay="0.5s">Notre Vision</a>
                 <a href="contact.html" class="nav-item nav-link wow fadeIn" data-wow-delay="0.6s">Contact</a>
             </div>
+
+            <div class="nav-item me-4 wow fadeIn" data-wow-delay="0.7s">
+                <a href="cart.html" class="position-relative d-flex align-items-center justify-content-center" style="text-decoration: none; color: white;">
+                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                    <span class="badge bg-primary rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                </a>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -89,7 +443,13 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Notre Vision</h1>
+                    <h1 class="display-3  animated slideInDown" style=' 
+                    font-size: 5rem;
+                    font-weight: 700;
+                    color: #d28d2d; /* Doré pour un style marocain riche */
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+                    line-height: 1.3;
+                    text-align: centre;'>Notre Vision</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Accueil</a></li>
@@ -178,11 +538,13 @@
 </style>
 <div class="container-xxl py-5" style="background-color: #f9f9f9; border-radius: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden;">
     <div class="container">
+        <div class="section-title text-center" style="text-align: center !important; width: 100%;">
+            <h1 class="display-5 mb-5" style="color: #b26a3a;">Notre vision</h1>
+        </div>
         <div class="row g-5 align-items-center justify-content-center text-center">
             <div class="col-lg-8">
-                <h1 style="font-family: 'Sacramento', serif; color: #b26a3a; font-size: 3.5rem; font-weight: bold; text-transform: uppercase;">Notre Vision</h1>
               
-                <p id="typed-text" style="line-height: 1.8; margin-top: 20px;"></p>
+                <p data-aos="flip-left" data-aos-duration="3000"  style="line-height: 1.8; margin-top: 20px;">Notre vision est de créer une vitrine mondiale pour l'artisanat marocain en ligne, mettant en avant des créations uniques telles que des parfums, des pièces artisanales en cuivre, en argile, en cuir, et bien plus encore Ce projet permettra de surmonter les obstacles liés à l'accessibilité des produits artisanaux, rendant ces trésors culturels accessibles à un public mondial.À long terme, notre objectif est de favoriser une demande croissante pour ces produits exceptionnels, inspirant les jeunes générations à se tourner vers l'artisanat et garantissant la pérennité de ces métiers traditionnels.</p>
             </div>
         </div>
         
@@ -617,7 +979,7 @@ button:is(:hover, :focus) {
       </section>
       
         <!-- Footer Start -->
-        <div class="container-fluid bg-brown text-beige footer pt-5">
+        <div class="container-fluid bg-brown text-beige footer mt-5 pt-5">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-4 col-md-6">
@@ -652,7 +1014,7 @@ button:is(:hover, :focus) {
                         </div>
                         <div class="d-flex pt-3">
                             <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social me-2" href="https://www.instagram.com/arti_zanya?igsh=OXh6c3FhcDVrcXVr"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
                         </div>
@@ -662,16 +1024,14 @@ button:is(:hover, :focus) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; 2024 Artisanat Marocain, Tous droits réservés.
+                        &copy; 2024 ARTIZANYA, Tous droits réservés.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        Designé par <a href="#" class="text-beige">Artisanat Marocain</a>
+                        Designé par <a href="#" class="text-beige">ARTIZANYA</a>
                     </div>
                 </div>
             </div>
         </div>
-        
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
