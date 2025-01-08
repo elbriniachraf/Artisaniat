@@ -76,20 +76,9 @@ $('#portfolio-flters li').on('click', function () {
     portfolioIsotope.isotope({filter: $(this).data('filter')});
 });
 
-new Typed("#typing-effect", {
-    strings: [
-        "L'artisanat marocain, un trésor d'authenticité.",
-        "Chaque pièce raconte une histoire.",
-        "Des produits faits avec amour et savoir-faire.",
-        "Un patrimoine culturel unique au monde.",
-        "L'élégance de la tradition dans votre quotidien."
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    loop: true
-});
+
         
-    }, 1290);
+    }, 20);
  
     
 
